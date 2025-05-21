@@ -108,11 +108,12 @@ class Chart extends React.Component {
   
         let totalPB = 0
         for (let i = 0; i < this.state.races.length; i += 1) {
-            const date = new Date(Date.parse(this.state.races[i].raceDate))
+            const currentRace = this.state.races[i];
+            const date = new Date(Date.parse(currentRace.raceDate))
             if (date > start && date < end) {
-                percentBackSet.push(this.state.races[i].percentBack)
-                datesSet.push(this.state.races[i].raceDate)
-                totalPB = totalPB + +this.state.races[i].percentBack
+                percentBackSet.push(currentRace.percentBack)
+                datesSet.push(currentRace.raceDate)
+                totalPB = totalPB + +currentRace.percentBack
             }
         }
         const totalLength = percentBackSet.length;
